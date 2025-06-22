@@ -29,7 +29,7 @@ export default function Home() {
       <Contact />
       <RegisterModal />
 
-      <Toaster position="top-right" richColors theme="system" />
+      <Toaster position="top-right" richColors theme="light" />
     </>
   );
 }
