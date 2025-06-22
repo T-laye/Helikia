@@ -84,7 +84,7 @@ export default function RegisterModal() {
       onClose={closeModal}
     >
       <div className="fixed top-0 left-0 right-0 bottom-0 w-screen py-20 overflow-y-auto bg-black/30 backdrop-blur-[2px]">
-        <div className="flex min-h-full items-end justify-center">
+        <div className="flex min-h-full items-center justify-center">
           <DialogPanel className="w-full rounded-[10px] mx-auto px-7 sm:px-10 bg-white pt-[18px] pb-11 max-w-2xl">
             <DialogTitle as="h3" className="font-semibold sm:text-lg ">
               Retreat Registration

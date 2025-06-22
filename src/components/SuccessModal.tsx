@@ -8,19 +8,19 @@ export default function SuccessModal() {
 
   return (
     <Dialog
-      open={isModalOpen}
+      open={!isModalOpen}
       as="div"
       className="bg-black/30 text-black relative z-[10001] focus:outline-none "
       onClose={closeModal}
     >
       <div className="fixed top-0 left-0 right-0 bottom-0 w-screen overflow-y-auto bg-black/30 backdrop-blur-[2px]">
         <div className="flex min-h-full items-center justify-center">
-          <DialogPanel className="w-full rounded-[10px] mx-auto px-7 sm:px-10 bg-white pt-8 pb-11 max-w-2xl">
+          <DialogPanel className="w-full rounded-[10px] mx-auto px-7 sm:px-10 bg-white pt-6 sm:pt-8 pb-7 sm:pb-11 max-w-2xl">
             <DialogTitle as="h3" className="font-semibold text-xl text-center ">
               Registration Successful
             </DialogTitle>
 
-            <p className="text-black my-10 text-lg max-w-lg mx-auto text-center">
+            <p className="text-black my-6 sm:my-10 sm:text-lg max-w-lg mx-auto text-center">
               We are so glad to have you....
               <br />
               <br />
