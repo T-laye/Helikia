@@ -30,9 +30,11 @@ export default function Contact() {
             more update on the Retreat.
           </p>
           <Button
+            href="https://chat.whatsapp.com/K1Kw7ZSzChuKqXLM23Y1GZ"
+            target="_blank"
             size="sm"
             theme="secondary"
-            className="mx-auto mt-[30px] mb-7 sm:mb-10"
+            className="mx-auto mt-[30px] mb-7 w-fit sm:mb-10"
           >
             Join
           </Button>
@@ -65,7 +67,7 @@ export default function Contact() {
             <FaInstagram className="text-[34px] sm:text-4xl" />
           </Link>
           <Link
-            href="https://www.instagram.com/rccg_princeofpeace?igsh=dHcyODV0NXByZTNw"
+            href="https://www.facebook.com/share/1Fe1DqCdW2/"
             target="_blank"
           >
             <BiLogoFacebookCircle className="text-[34px] sm:text-4xl" />

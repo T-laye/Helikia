@@ -4,8 +4,11 @@ import { FaInstagram } from "react-icons/fa";
 import { BiLogoFacebookCircle } from "react-icons/bi";
 import Link from "next/link";
 import Button from "../ui/Button";
+import { useRegisterModal } from "../../store/variables";
 
 export default function Hero() {
+  const { openModal } = useRegisterModal();
+
   return (
     <section
       id="home"
@@ -46,7 +49,7 @@ export default function Hero() {
               <FaInstagram className="text-2xl sm:text-3xl" />
             </Link>
             <Link
-              href="https://www.instagram.com/rccg_princeofpeace?igsh=dHcyODV0NXByZTNw"
+              href="https://www.facebook.com/share/1Fe1DqCdW2/"
               target="_blank"
             >
               <BiLogoFacebookCircle className="text-2xl sm:text-3xl" />
@@ -55,7 +58,7 @@ export default function Hero() {
           </div>
 
           <Button
-            
+            onClick={openModal}
             size="md"
             className="mt-[22px] sm:mt-[42px]"
           >

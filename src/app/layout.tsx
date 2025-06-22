@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   title: "Helikia | POP",
   description:
     "The Youth Word & Prayer Retreat is a 2Day Camping Retreat and as such we would kindly appreciate you bear it in mind and clear your schedule to avoid unnecessary movements in and out of the retreat venue.",
+  openGraph: {
+    title: "Helikia",
+    description:
+      "The Youth Word & Prayer Retreat is a 2Day Camping Retreat and as such we would kindly appreciate you bear it in mind and clear your schedule to avoid unnecessary movements in and out of the retreat venue.",
+    images: [
+      {
+        url: "/images/program_flyer.png",
+        alt: "Helikia - Rccg Prince of Peace",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -21,9 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} antialiased`}>
-        {children}
-      </body>
+      <body className={`${poppins.variable} antialiased`}>{children}</body>
     </html>
   );
 }
