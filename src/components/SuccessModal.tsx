@@ -8,7 +8,7 @@ export default function SuccessModal() {
 
   return (
     <Dialog
-      open={!isModalOpen}
+      open={isModalOpen}
       as="div"
       className="bg-black/30 text-black relative z-[10001] focus:outline-none "
       onClose={closeModal}
