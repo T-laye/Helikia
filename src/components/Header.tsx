@@ -5,12 +5,13 @@ import { MdMenu } from "react-icons/md";
 // import { usePathname } from "next/navigation";
 // import { useEffect } from "react";
 import gsap from "gsap";
-import { useNavStore } from "../store/variables";
+import { useNavStore, useRegisterModal } from "../store/variables";
 import Logo from "./ui/Logo";
 import { useEffect } from "react";
 
 const Header = () => {
   const { closeNav, isNavOpen, openNav } = useNavStore();
+  const { openModal } = useRegisterModal();
 
   useEffect(() => {
     gsap.fromTo(
@@ -66,7 +67,13 @@ const Header = () => {
             </Link>
           </ul>
           <div className="sm:hidden mobile li mt-10">
-            <Button size="sm" theme="primary" type="button" className="w-full">
+            <Button
+              onClick={openModal}
+              size="sm"
+              theme="primary"
+              type="button"
+              className="w-full"
+            >
               Register
             </Button>
           </div>
