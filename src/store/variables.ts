@@ -46,3 +46,4 @@ const createModalStore = () =>
   }));
 
 export const useRegisterModal = createModalStore();
+export const useSuccessModal = createModalStore();

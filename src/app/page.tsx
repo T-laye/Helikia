@@ -9,6 +9,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import RegisterModal from "../components/RegisterModal";
 import { Toaster } from "sonner";
+import SuccessModal from "../components/SuccessModal";
 
 export default function Home() {
   useEffect(() => {
@@ -28,6 +29,7 @@ export default function Home() {
       <KeyNotes />
       <Contact />
       <RegisterModal />
+      <SuccessModal />
 
       <Toaster position="top-right" richColors theme="light" />
     </>

@@ -2,11 +2,13 @@
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { useFormik } from "formik";
 import { toast } from "sonner";
-import { useRegisterModal } from "../store/variables";
+import { useRegisterModal, useSuccessModal } from "../store/variables";
 import Button from "./ui/Button";
 import * as Yup from "yup";
 import InputField from "./ui/InputField";
 import TextAreaField from "./ui/TextAreaField";
+import { useState } from "react";
+import { addRegistration } from "../lib/actions";
 
 export const registerValidation = Yup.object({
   fullName: Yup.string().required("Full Name is required"),
@@ -30,6 +32,10 @@ interface FormValues {
 
 export default function RegisterModal() {
   const { closeModal, isModalOpen } = useRegisterModal();
+  const { openModal } = useSuccessModal();
+  const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState("");
+  // const [success, setSuccess] = useState("");
 
   const formik = useFormik<FormValues>({
     initialValues: {
@@ -41,11 +47,27 @@ export default function RegisterModal() {
       expectations: "",
     },
     validationSchema: registerValidation,
-    onSubmit: (values) => {
-      console.log(values);
-      toast.success("Registration successful!");
-      closeModal();
-      formik.resetForm();
+    onSubmit: async (values) => {
+      setLoading(true);
+      try {
+        const res = await addRegistration(values);
+
+        if (res.successMessage) {
+          // setSuccess(res.successMessage);
+          toast.success(res.successMessage);
+          formik.resetForm();
+          closeModal();
+          openModal();
+        } else {
+          // setError(res.errorMessage || "");
+          toast.error(res.errorMessage || "Something went wrong.");
+        }
+      } catch (error) {
+        toast.error("Failed to register.");
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
     },
   });
 
@@ -168,7 +190,12 @@ export default function RegisterModal() {
                 <Button theme="tetiary" size="sm" onClick={handleCloseModal}>
                   Cancel
                 </Button>
-                <Button type="submit" size="sm">
+                <Button
+                  loading={loading}
+                  disabled={loading || !(formik.isValid && formik.dirty)}
+                  type="submit"
+                  size="sm"
+                >
                   Register
                 </Button>
               </div>

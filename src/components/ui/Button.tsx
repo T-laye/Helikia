@@ -35,11 +35,7 @@ const Button: React.FC<ButtonProps> = ({
   loading,
 }) => {
   const themeMap = {
-    primary: `text-white ${
-      disabled
-        ? "bg-primary-disabled dark:bg-secondary-disabled"
-        : "bg-primary dark:bg-secondary"
-    }`,
+    primary: `text-white ${disabled ? "bg-primary/40" : "bg-primary"}`,
     secondary: `text-primary bg-white`,
     tetiary: `text-primary border border-primary `,
   };
@@ -55,9 +51,9 @@ const Button: React.FC<ButtonProps> = ({
       disabled
         ? " cursor-not-allowed"
         : "cursor-pointer hover:scale-102 duration-150 active:scale-100"
-    }   ${
-      !customTheme && themeMap[theme]
-    } ${sizeClasses} ${customTheme} ${className || ""}`.trim();
+    }   ${!customTheme && themeMap[theme]} ${sizeClasses} ${customTheme} ${
+      className || ""
+    }`.trim();
 
   // If href is provided, render as a link
   if (href) {
