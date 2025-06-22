@@ -1,26 +1,49 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #f6f6f6;
+  --color-primary: #910508;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --font-poppins: "Poppins", sans-serif;
 }
 
+html{
+  scroll-behavior: smooth;
+}
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins);
+  color: black;
+}
+
+h2 {
+  @apply font-semibold sm:text-2xl;
+}
+
+
+.label-class {
+  @apply block mb-2 text-sm font-medium sm:text-lg;
+}
+.input-class {
+  @apply w-full border border-[#AAAAAA] px-[10px] text-sm font-medium py-3 h-[43px] rounded-md placeholder:text-[#BFBFBF] focus:border-primary focus:outline-none caret-primary sm:h-[60px] sm:text-base sm:py-4 duration-150;
+}
+.select-class {
+  @apply w-full border px-[10px] text-sm font-medium py-3 h-[43px] rounded-md placeholder:text-[#BFBFBF] focus:border-primary focus:outline-none caret-primary sm:h-[60px] sm:text-base sm:py-4  duration-150;
+}
+.textarea-class {
+  @apply w-full border px-[11px] text-sm font-medium py-3 h-[120px] md:h-[201px] rounded-md placeholder:font-normal placeholder:italic placeholder:text-[#BFBFBF] placeholder:text-xs focus:border-primary focus:outline-none caret-primary sm:h-[60px] sm:text-base sm:py-4  duration-150;
+}
+
+
+.myContainer {
+  @apply max-w-[1000px] mx-auto px-7 sm:px-10;
+}
+
+.hero_bg {
+  background-image: url("/images/hero-bg.png");
+  /* linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.40)), */
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
